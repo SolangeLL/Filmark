@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root {
+  /* Couleurs */
+  --primary-color: #97A87A;
+  --secondary-color: #A8BBA3;
+  --accent-color: #FFA239;
+  --accent-hover-color: #ffd29f;
+  --background-color: #FCF9EA;
+  --text-color: #1f2937;
+  --border-color: #363d2a;
+
+  /* Espacements */
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Typographie */
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 20px;
+  --font-size-xl: 24px;
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+@font-face {
+  font-family: 'Cocogoose';
+  src: url('../../assets/fonts/cocogoose/Cocogoose-Pro-Bold-trial.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cocogoose';
+  src: url('../../assets/fonts/cocogoose/Cocogoose-Pro-Italic-trial.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cocogoose';
+  src: url('../../assets/fonts/cocogoose/Cocogoose-Pro-Regular-trial.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CrayonHand';
+  src: url('../../assets/fonts/crayon-hand/CrayonHandRegular2016Demo.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Creamer';
+  src: url('../../assets/fonts/creamer/Creamer.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DevilCandle';
+  src: url('../../assets/fonts/devil-candle/DevilCandle_PERSONAL_USE_ONLY.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'FiftiesMovies';
+  src: url('../../assets/fonts/fifties-movies/Fifties\ Movies.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HappySchool';
+  src: url('../../assets/fonts/happy-school/Happy School.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HelpMe';
+  src: url('../../assets/fonts/help-me/HelpMe.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IKnowAGhost';
+  src: url('../../assets/fonts/i-know-a-ghost/iknowaghost.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Typewriter';
+  src: url('../../assets/fonts/jmh-typewriter/JMH\ Typewriter-Black.ttf') format('truetype');
+  font-weight: bolder;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Typewriter';
+  src: url('../../assets/fonts/jmh-typewriter/JMH\ Typewriter-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Typewriter';
+  src: url('../../assets/fonts/jmh-typewriter/JMH\ Typewriter.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'KGBlankSpace';
+  src: url('../../assets/fonts/kg-blank-space/KGBlankSpaceSolid.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MagnificientSerif';
+  src: url('../../assets/fonts/magnificient-serif/Magnificent\ Serif.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('../../assets/fonts/open-dyslexic/OpenDyslexic-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('../../assets/fonts/open-dyslexic/OpenDyslexic-Italic.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('../../assets/fonts/open-dyslexic/OpenDyslexic-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'RelationshipOfMelodrame';
+  src: url('../../assets/fonts/relationship-of-melodrame/Relationship\ of\ mélodrame.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+

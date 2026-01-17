@@ -1,0 +1,80 @@
+.login-page {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(
+    200.96deg,
+    var(--accent-color) -29.09%,
+    var(--background-color) 51.77%,
+    var(--primary-color) 129.35%
+  );
+}
+
+.tools {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 20%;
+  margin-bottom: 40px;
+  background: linear-gradient(
+    120.96deg,
+    #ffffff 51.77%,
+    var(--secondary-color) 129.35%
+  );
+}
+
+.users {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+  height: 40%;
+}
+
+.user-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-picture {
+  border-radius: 50%;
+  padding: 0.3rem;
+  background: linear-gradient(
+    130deg,
+    #ffefb0 51.77%,
+    #5001c7 129.35%
+  );
+  position: relative;
+  display: flex;
+  border: 3px solid black;
+  transition: all ease 0.3s;
+}
+
+.user-picture:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.user-picture img {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+
+

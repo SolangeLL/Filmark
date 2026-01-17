@@ -1,0 +1,112 @@
+.layout-container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 15%;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-title-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.collapse-button {
+  display: flex;
+  font-size: medium;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.collapse-button:hover {
+  background-color: var(--accent-hover-color);
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: large;
+    transition: all ease 0.2s;
+}
+
+.nav-link:hover {
+    background-color: var(--background-color);
+    color: black;
+}
+
+.nav-link.active {
+    background-color: var(--secondary-color);
+    color: black;
+}
+
+.main-content {
+    flex: 1;
+    overflow: auto;
+    background-color: #ecf0f1;
+    padding: 30px;
+}
+
+/* .nav-divider {
+  height: 2px;
+  width: 100%;
+  background-color: var(--accent-color);
+} */
+
+.nav-section-title {
+  padding-top: 2rem; /* Pour compenser le gap */
+  border-top: 2px solid var(--accent-color);
+  width: 100%;
+}
+
+.bottom-section {
+  display:flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: auto;
+}
+
+.logout-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem 0.8rem;
+    background-color: var(--background-color);
+    font-weight: bold;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 15px;
+    transition: all 0.2s ease;
+    box-shadow: 0.5rem 0.5rem var(--accent-color);
+}
+
+.logout-button:hover {
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    transform: translate(0.5rem, 0.5rem);
+    box-shadow: none;
+}
