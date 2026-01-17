@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import './AppLayout.css';
 import {
@@ -8,91 +9,94 @@ import {
   HiCog6Tooth,
   HiUser,
   HiChevronDoubleLeft,
+  HiChevronDoubleRight,
 } from 'react-icons/hi2';
-// import { useAuth } from '../contexts/AuthContext.tsx';
+
+const NAV_ITEMS = [
+  { path: '/dashboard', icon: HiSquares2X2, label: 'Dashboard' },
+  { path: '/films', icon: HiCamera, label: 'Films' },
+  { path: '/series', icon: HiTv, label: 'Series' },
+];
+
+const ACCOUNT_ITEMS = [
+  { path: '/settings', icon: HiCog6Tooth, label: 'Settings' },
+  { path: '/profil', icon: HiUser, label: 'Profil' },
+];
 
 export default function AppLayout() {
-  // const { logout } = useAuth();
   const navigate = useNavigate();
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   const handleLogout = () => {
-    // logout();
     navigate('/login');
   };
 
-  const collapseSidebar = () => {
-    console.log('Collapse sidebar clicked');
+  const toggleSidebar = () => {
+    setIsCollapsed(!isCollapsed);
   };
 
   return (
     <div className="layout-container">
-      <aside className="sidebar">
-        <div className="sidebar-title-section">
-          <h1 className="sidebar-title">Filmark</h1>
+      <aside className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
+        {/* Header */}
+        <div className="sidebar-header">
+          {!isCollapsed && <h1 className="sidebar-title">Filmark</h1>}
           <button
             type="button"
             className="collapse-button"
-            onClick={collapseSidebar}
+            onClick={toggleSidebar}
+            aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
           >
-            <HiChevronDoubleLeft />
+            {isCollapsed ? <HiChevronDoubleRight /> : <HiChevronDoubleLeft />}
           </button>
         </div>
 
-        <h3 className="nav-section-title">Marks</h3>
-
+        {/* Main Navigation */}
         <nav className="sidebar-nav">
-          <NavLink
-            to="/dashboard"
-            className={({ isActive }) =>
-              isActive ? 'nav-link active' : 'nav-link'
-            }
-          >
-            <HiSquares2X2 style={{ marginRight: '0.5rem' }} />
-            Dashboard
-          </NavLink>
-          <NavLink
-            to="/films"
-            className={({ isActive }) =>
-              isActive ? 'nav-link active' : 'nav-link'
-            }
-          >
-            <HiCamera style={{ marginRight: '0.5rem' }} />
-            Films
-          </NavLink>
-          <NavLink
-            to="/series"
-            className={({ isActive }) =>
-              isActive ? 'nav-link active' : 'nav-link'
-            }
-          >
-            <HiTv style={{ marginRight: '0.5rem' }} />
-            Series
-          </NavLink>
+          <div className="nav-divider" />
+          {!isCollapsed && <h3 className="nav-section-title">Marks</h3>}
 
+          {NAV_ITEMS.map(({ path, icon: Icon, label }) => (
+            <NavLink
+              key={path}
+              to={path}
+              className={({ isActive }) =>
+                `nav-link ${isActive ? 'active' : ''}`
+              }
+              title={isCollapsed ? label : undefined}
+            >
+              <Icon className="nav-icon" />
+              {!isCollapsed && <span>{label}</span>}
+            </NavLink>
+          ))}
+
+          {/* Account Section */}
           <div className="bottom-section">
-            <h3 className="nav-section-title">Account</h3>
-            <NavLink
-              to="/settings"
-              className={({ isActive }) =>
-                isActive ? 'nav-link active' : 'nav-link'
-              }
-            >
-              <HiCog6Tooth style={{ marginRight: '0.5rem' }} />
-              Settings
-            </NavLink>
-            <NavLink
-              to="/user"
-              className={({ isActive }) =>
-                isActive ? 'nav-link active' : 'nav-link'
-              }
-            >
-              <HiUser style={{ marginRight: '0.5rem' }} />
-              User
-            </NavLink>
+            <div className="nav-divider" />
+            {!isCollapsed && <h3 className="nav-section-title">Account</h3>}
 
-            <NavLink to="/login" className="nav-link" onClick={handleLogout}>
-              <HiArrowLeftOnRectangle style={{ marginRight: '0.5rem' }} />
-              Log Out
+            {ACCOUNT_ITEMS.map(({ path, icon: Icon, label }) => (
+              <NavLink
+                key={path}
+                to={path}
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? 'active' : ''}`
+                }
+                title={isCollapsed ? label : undefined}
+              >
+                <Icon className="nav-icon" />
+                {!isCollapsed && <span>{label}</span>}
+              </NavLink>
+            ))}
+
+            <NavLink
+              to="/login"
+              className="nav-link"
+              onClick={handleLogout}
+              title={isCollapsed ? 'Log Out' : undefined}
+            >
+              <HiArrowLeftOnRectangle className="nav-icon" />
+              {!isCollapsed && <span>Log Out</span>}
             </NavLink>
           </div>
         </nav>
