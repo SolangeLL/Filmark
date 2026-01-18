@@ -23,14 +23,10 @@ body {
 
 h1, h2, h3, h4 {
   font-family: 'Cocogoose';
+  color: var(--title-color);
 }
 
 button {
-  /* background-color: white;
-  padding: 10px 20px;
-  font-size: 1.3rem;
-  box-shadow: 0px 8px 28px -6px rgba(24, 39, 75, 0.12),
-  0px 18px 88px -4px rgba(24, 39, 75, 0.14); */
   border-radius: 10px;
   border: none;
   appearance: none;
