@@ -1,0 +1,20 @@
+.pinned-film-card {
+  width: 95%;
+  height: 13vh;
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  overflow: hidden;
+}
+
+.pinned-film-card:hover {
+  transform: scale(1.05);
+  z-index: 10;
+}

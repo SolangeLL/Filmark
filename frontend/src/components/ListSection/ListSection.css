@@ -1,0 +1,20 @@
+.list-section {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.title-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.title-bar button {
+  display: flex;
+  background-color: var(--accent-color);
+  height: fit-content;
+  padding: 5px;
+  border-radius: 5px;
+  margin-left: 1rem;
+  font-weight: bold;
+}

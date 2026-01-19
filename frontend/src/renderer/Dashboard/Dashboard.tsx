@@ -1,9 +1,9 @@
-import { HiPlus } from 'react-icons/hi2';
 import { HiX } from 'react-icons/hi';
 import { useState } from 'react';
 import './Dashboard.css';
 import { LuHeart, LuList, LuTrash } from 'react-icons/lu';
-import IconLabel from '../../components/IconLabel/IconLabel';
+import ListSection from '../../components/ListSection/ListSection';
+import PinnedSection from '../../components/PinnedSection/PinnedSection';
 
 const FILMS = [
   'Film 1',
@@ -14,6 +14,8 @@ const FILMS = [
   'Film 6',
   'Film 7',
 ];
+const FAVORITES = ['Film 1', 'Film 2', 'Film 3'];
+const TRASH = ['Film 1', 'Film 2', 'Film 3'];
 
 function Dashboard() {
   const [selectedFilm, setSelectedFilm] = useState<string | null>(null);
@@ -22,8 +24,12 @@ function Dashboard() {
     console.log('Add film');
   }
 
-  function openFilmDetails(filmName: string) {
-    setSelectedFilm(filmName);
+  function viewAllFavorites() {
+    console.log('View all favorites');
+  }
+
+  function viewAllTrash() {
+    console.log('View all trash');
   }
 
   function closeModal() {
@@ -34,80 +40,40 @@ function Dashboard() {
     <div className="dashboard">
       <h1>Dashboard Page</h1>
 
-      <div className="list-section">
-        <div className="list-header">
-          <IconLabel icon={LuList} label="Films" />
-          <button type="button" onClick={addFilm}>
-            <HiPlus />
-          </button>
-        </div>
-        <div className="list-content">
-          {FILMS.map((film) => (
-            <div
-              key={film}
-              className="film-card"
-              onClick={() => openFilmDetails(film)}
-            >
-              {film}
-            </div>
-          ))}
-        </div>
-      </div>
+      <ListSection
+        icon={LuList}
+        title="List"
+        films={FILMS}
+        onFilmClick={setSelectedFilm}
+        onAdd={() => addFilm()}
+      />
 
       <div className="pinned">
-        <div className="favorites">
-          <IconLabel icon={LuHeart} label="Favorites" />
-          <div className="pinned-list-content">
-            <div
-              className="pinned-film-card"
-              onClick={() => openFilmDetails('Film 1')}
-            >
-              Film 1
-            </div>
-            <div
-              className="pinned-film-card"
-              onClick={() => openFilmDetails('Film 2')}
-            >
-              Film 2
-            </div>
-            <div
-              className="pinned-film-card"
-              onClick={() => openFilmDetails('Film 3')}
-            >
-              Film 3
-            </div>
-          </div>
-        </div>
+        <PinnedSection
+          icon={LuHeart}
+          title="Favorites"
+          films={FAVORITES}
+          onFilmClick={setSelectedFilm}
+          onViewAll={() => viewAllFavorites()}
+        />
 
-        <div className="trash">
-          <IconLabel icon={LuTrash} label="Trash" />
-          <div className="pinned-list-content">
-            <div
-              className="pinned-film-card"
-              onClick={() => openFilmDetails('Film 1')}
-            >
-              Film 1
-            </div>
-            <div
-              className="pinned-film-card"
-              onClick={() => openFilmDetails('Film 2')}
-            >
-              Film 2
-            </div>
-            <div
-              className="pinned-film-card"
-              onClick={() => openFilmDetails('Film 3')}
-            >
-              Film 3
-            </div>
-          </div>
-        </div>
+        <PinnedSection
+          icon={LuTrash}
+          title="Trash"
+          films={TRASH}
+          onFilmClick={setSelectedFilm}
+          onViewAll={() => viewAllTrash()}
+        />
       </div>
 
       <div className={`film-modal ${selectedFilm ? 'open' : ''}`}>
         <div className="film-modal-header">
           <h2>Détails du film</h2>
-          <button onClick={closeModal} className="film-modal-close-button">
+          <button
+            type="button"
+            onClick={closeModal}
+            className="film-modal-close-button"
+          >
             <HiX />
           </button>
         </div>
@@ -167,7 +133,7 @@ function Dashboard() {
                   fontWeight: 'bold',
                 }}
               >
-                ⭐ 4.5/5
+                ⭐ 4.5/5 💩 0/5
               </p>
             </div>
 

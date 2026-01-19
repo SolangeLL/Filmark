@@ -2,76 +2,6 @@
   overflow-x: hidden;
 }
 
-.list-section {
-  margin-bottom: 1.5rem;
-  position: relative;
-}
-
-.list-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.list-header button {
-  display: flex;
-  background-color: var(--accent-color);
-  height: fit-content;
-  padding: 5px;
-  border-radius: 5px;
-  margin-left: 1rem;
-}
-
-.list-content {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  padding: 0.5rem 0.5rem 1rem 0.5rem;
-  position: relative;
-  margin-top: 1rem;
-}
-
-.list-content::-webkit-scrollbar {
-  height: 8px;
-}
-
-.list-content::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 10px;
-}
-
-.list-content::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
-
-.film-card {
-  min-width: 150px;
-  width: 150px;
-  height: 225px;
-  background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: bold;
-  flex-shrink: 0;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  overflow: hidden;
-}
-
-.film-card:hover {
-  transform: scale(1.05);
-  z-index: 10;
-}
-
-.test-content {
-  height: 30vh;
-  background-color: var(--primary-color);
-  border-radius: 15px;
-}
-
 .pinned {
   display: inline-flex;
   justify-content: space-between;
@@ -79,50 +9,12 @@
   gap: 6rem;
 }
 
-.pinned-list-content {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  overflow-y: auto;
-  width: 100%;
-  padding: 1rem;
-  margin-top: 1rem;
-}
-
-.pinned-film-card {
-  width: 95%;
-  height: 150px;
-  background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: bold;
-  flex-shrink: 0;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  overflow: hidden;
-}
-
-.pinned-film-card:hover {
-  transform: scale(1.05);
-  z-index: 10;
-}
-
-.favorites {
-  width: 100%;
-}
-
-.trash {
-  width: 100%;
-}
-
+/*! Film modal !*/
 .film-modal {
   position: fixed;
   right: 0;
   top: 0;
-  width: 400px;
+  width: 65vw;
   height: 100vh;
   background: white;
   box-shadow: -4px 0 12px rgba(0,0,0,0.1);
