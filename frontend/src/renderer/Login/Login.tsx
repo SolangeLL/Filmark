@@ -23,6 +23,7 @@ function Login() {
             Login
           </button>
         </Link>
+        <button type="button">Group</button>
         <button type="button">Language</button>
         <button type="button">Theme</button>
         <button type="button">Settings</button>

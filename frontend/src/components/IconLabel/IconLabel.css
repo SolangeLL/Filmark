@@ -1,0 +1,30 @@
+.iconLabel {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: fit-content;
+  height: min-content;
+}
+
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.8rem;
+  color: var(--title-color);
+}
+
+.label {
+  margin: 0;
+}
+
+.iconLabel::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 0.3rem;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease;
+}

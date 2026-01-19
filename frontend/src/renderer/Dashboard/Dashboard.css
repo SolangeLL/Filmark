@@ -1,18 +1,5 @@
-.dashboard h2 {
-  position: relative;
-  width: fit-content;
-}
-
-.dashboard h2::after {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 0.3rem;
-  background-color: var(--accent-color);
-  transition: width 0.3s ease;
+.dashboard {
+  overflow-x: hidden;
 }
 
 .list-section {
@@ -21,7 +8,8 @@
 }
 
 .list-header {
-  display: inline-flex;
+  display: flex;
+  flex-direction: row;
   align-items: center;
 }
 
@@ -40,6 +28,7 @@
   overflow-x: auto;
   padding: 0.5rem 0.5rem 1rem 0.5rem;
   position: relative;
+  margin-top: 1rem;
 }
 
 .list-content::-webkit-scrollbar {
@@ -87,7 +76,7 @@
   display: inline-flex;
   justify-content: space-between;
   width: 100%;
-  gap: 6rem
+  gap: 6rem;
 }
 
 .pinned-list-content {
@@ -97,10 +86,11 @@
   overflow-y: auto;
   width: 100%;
   padding: 1rem;
+  margin-top: 1rem;
 }
 
 .pinned-film-card {
-  width: 100%;
+  width: 95%;
   height: 150px;
   background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
   border-radius: 10px;
