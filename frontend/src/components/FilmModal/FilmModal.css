@@ -60,3 +60,51 @@
   font-size: 2rem;
   font-weight: bold;
 }
+
+.modal-section {
+  margin-bottom: 1.5rem;
+}
+
+.modal-section p {
+  line-height: 1.6;
+}
+
+.genre-container {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.genre-badge {
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+}
+
+.note {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.film-button {
+  flex: 1;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 999;
+  transition: opacity 0.3s ease;
+}
