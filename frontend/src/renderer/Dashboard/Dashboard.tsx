@@ -1,10 +1,10 @@
-import { HiX } from 'react-icons/hi';
 import { useState } from 'react';
 import './Dashboard.css';
 import { LuHeart, LuList, LuTrash } from 'react-icons/lu';
 import ListSection from '../../components/ListSection/ListSection';
 import PinnedSection from '../../components/PinnedSection/PinnedSection';
-import FilmModal from '../../components/FilmModal/FilmModal';
+// import FilmModal from '../../components/FilmModal/FilmModal';
+import FilmModal2 from '../../components/FilmModal2/FilmModal2';
 
 const FILMS = [
   'Film 1',
@@ -67,7 +67,7 @@ function Dashboard() {
         />
       </div>
 
-      <FilmModal
+      <FilmModal2
         isOpen={selectedFilm !== null}
         filmName={selectedFilm}
         onClose={() => closeModal()}

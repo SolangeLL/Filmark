@@ -10,12 +10,16 @@ import {
   HiUser,
   HiChevronDoubleLeft,
   HiChevronDoubleRight,
+  HiTrash,
+  HiHeart,
 } from 'react-icons/hi2';
 
 const NAV_ITEMS = [
   { path: '/dashboard', icon: HiSquares2X2, label: 'Dashboard' },
   { path: '/films', icon: HiCamera, label: 'Films' },
   { path: '/series', icon: HiTv, label: 'Series' },
+  { path: '/favorites', icon: HiHeart, label: 'Hall of Fame' },
+  { path: '/trash', icon: HiTrash, label: 'Hall of Shame' },
 ];
 
 const ACCOUNT_ITEMS = [
