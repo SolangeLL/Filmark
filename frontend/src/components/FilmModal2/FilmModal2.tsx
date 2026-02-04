@@ -1,8 +1,8 @@
 import { Rating } from '@mui/material';
 import './FilmModal2.css';
-// import { HiHeart, HiOutlineHeart } from 'react-icons/hi2';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import ThumbDownOutlined from '@mui/icons-material/ThumbDownOutlined';
+import Review from '../Review/Review';
 
 interface FilmModal2Props {
   isOpen: boolean;
@@ -31,8 +31,8 @@ function FilmModal2({ isOpen, filmName, onClose }: FilmModal2Props) {
               defaultValue={0}
               getLabelText={(value: number) => `${value} Heart${value !== 1 ? 's' : ''}`}
               precision={0.5}
-              icon={<FavoriteIcon fontSize="large" sx={{ color: "red" }} />}
-              emptyIcon={<FavoriteBorderIcon fontSize="large" />}
+              icon={<ThumbDownIcon fontSize="large" sx={{ color: "red" }} />}
+              emptyIcon={<ThumbDownOutlined fontSize="large" />}
             />
           </div>
         </div>
@@ -43,7 +43,7 @@ function FilmModal2({ isOpen, filmName, onClose }: FilmModal2Props) {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </div>
 
-          <div className="film-modal-details">
+          <div className="film-modal-information">
             <h2>Informations</h2>
             <p>Directed by <span id="detail">Director</span></p>
             <p>Released in <span id="detail">Date</span></p>
@@ -72,7 +72,12 @@ function FilmModal2({ isOpen, filmName, onClose }: FilmModal2Props) {
         </div>
 
         <div className="film-modal-third-section">
-          <h2>Your Reviews</h2>
+          <h2>Reviews</h2>
+          <div className="review-container">
+            <Review comment="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." goodNote={4.5} badNote={2.0} isNew={true} profilePictureUrl="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" />
+            <Review comment="Great movie!" goodNote={4.5} badNote={2.0} isNew={false} profilePictureUrl="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" />
+            <Review comment="Great movie!" goodNote={4.5} badNote={2.0} isNew={false} profilePictureUrl="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" />
+          </div>
         </div>
 
       </div>
