@@ -39,27 +39,27 @@ function FilmModal2({ isOpen, filmName, onClose }: FilmModal2Props) {
 
         <div className="film-modal-first-section">
           <div className="film-modal-synopsis">
-            <h3>Synopsis</h3>
+            <h2>Synopsis</h2>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </div>
 
           <div className="film-modal-details">
-            <h3>Informations</h3>
+            <h2>Informations</h2>
             <p>Directed by <span id="detail">Director</span></p>
-            <p>Released <span id="detail">Date</span></p>
+            <p>Released in <span id="detail">Date</span></p>
             <p>Duration <span id="detail">Duration</span></p>
           </div>
         </div>
 
         <div className="film-modal-second-section">
           <div className="genre-section">
-            <h3>Genre</h3>
+            <h2>Genre</h2>
             <div className="genre-container">
               <div className="genre-badge">
-                Genre1
+                Action
               </div>
               <div className="genre-badge">
-                Genre2
+                Adventure
               </div>
             </div>
           </div>
@@ -67,12 +67,12 @@ function FilmModal2({ isOpen, filmName, onClose }: FilmModal2Props) {
           {/* Cast actor section ? */}
 
           <div className="customization">
-            <h3>Customize your experience</h3>
+            <h2>Customize your experience</h2>
           </div>
         </div>
 
         <div className="film-modal-third-section">
-          <h3>Your Reviews</h3>
+          <h2>Your Reviews</h2>
         </div>
 
       </div>
