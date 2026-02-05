@@ -4,7 +4,7 @@ import { LuHeart, LuList, LuTrash } from 'react-icons/lu';
 import ListSection from '../../components/ListSection/ListSection';
 import PinnedSection from '../../components/PinnedSection/PinnedSection';
 // import FilmModal from '../../components/FilmModal/FilmModal';
-import FilmModal2 from '../../components/FilmModal2/FilmModal2';
+import FilmModal2 from '../../components/FilmModal/FilmModal';
 
 const FILMS = [
   'Film 1',
