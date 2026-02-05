@@ -14,7 +14,6 @@ function FilmModal2({ isOpen, filmName, onClose }: FilmModal2Props) {
   return (
     <>
       <div className={`film-modal ${isOpen ? 'open' : ''}`}>
-
         <div className="film-modal-header">
           <div className="film-modal-picture">
             <img
@@ -26,12 +25,21 @@ function FilmModal2({ isOpen, filmName, onClose }: FilmModal2Props) {
 
           <div className="film-modal-header-content">
             <h2>{filmName}</h2>
-            <Rating name="fav-rating" defaultValue={0} precision={0.5} size="large" sx={{ fontSize: '4rem' }} />
-            <Rating name="bad-rating"
+            <Rating
+              name="fav-rating"
               defaultValue={0}
-              getLabelText={(value: number) => `${value} Heart${value !== 1 ? 's' : ''}`}
               precision={0.5}
-              icon={<ThumbDownIcon fontSize="large" sx={{ color: "red" }} />}
+              size="large"
+              sx={{ fontSize: '4rem' }}
+            />
+            <Rating
+              name="bad-rating"
+              defaultValue={0}
+              getLabelText={(value: number) =>
+                `${value} Heart${value !== 1 ? 's' : ''}`
+              }
+              precision={0.5}
+              icon={<ThumbDownIcon fontSize="large" sx={{ color: 'red' }} />}
               emptyIcon={<ThumbDownOutlined fontSize="large" />}
             />
           </div>
@@ -40,14 +48,26 @@ function FilmModal2({ isOpen, filmName, onClose }: FilmModal2Props) {
         <div className="film-modal-first-section">
           <div className="film-modal-synopsis">
             <h2>Synopsis</h2>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
           </div>
 
           <div className="film-modal-information">
             <h2>Informations</h2>
-            <p>Directed by <span id="detail">Director</span></p>
-            <p>Released in <span id="detail">Date</span></p>
-            <p>Duration <span id="detail">Duration</span></p>
+            <p>
+              Directed by <span id="detail">Director</span>
+            </p>
+            <p>
+              Released in <span id="detail">Date</span>
+            </p>
+            <p>
+              Duration <span id="detail">Duration</span>
+            </p>
           </div>
         </div>
 
@@ -55,12 +75,8 @@ function FilmModal2({ isOpen, filmName, onClose }: FilmModal2Props) {
           <div className="genre-section">
             <h2>Genre</h2>
             <div className="genre-container">
-              <div className="genre-badge">
-                Action
-              </div>
-              <div className="genre-badge">
-                Adventure
-              </div>
+              <div className="genre-badge">Action</div>
+              <div className="genre-badge">Adventure</div>
             </div>
           </div>
 
@@ -74,12 +90,32 @@ function FilmModal2({ isOpen, filmName, onClose }: FilmModal2Props) {
         <div className="film-modal-third-section">
           <h2>Reviews</h2>
           <div className="review-container">
-            <Review comment="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." goodNote={4.5} badNote={2.0} isNew={true} profilePictureUrl="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" />
-            <Review comment="Great movie!" goodNote={4.5} badNote={2.0} isNew={false} profilePictureUrl="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" />
-            <Review comment="Great movie!" goodNote={4.5} badNote={2.0} isNew={false} profilePictureUrl="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" />
+            <Review
+              title="Amazing movie!"
+              comment="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              goodNote={4.5}
+              badNote={2.0}
+              profilePictureUrl="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
+              reviewDate="01/01/2024"
+            />
+            <Review
+              title="Not bad"
+              comment="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              goodNote={5.0}
+              badNote={1.0}
+              profilePictureUrl="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
+              reviewDate="24/12/2025"
+            />
+            <Review
+              title="Disappointing"
+              comment="So bad"
+              goodNote={0.5}
+              badNote={4.5}
+              profilePictureUrl="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
+              reviewDate="06/07/2026"
+            />
           </div>
         </div>
-
       </div>
 
       {isOpen && <div onClick={onClose} className="background" />}

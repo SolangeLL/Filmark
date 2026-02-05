@@ -15,16 +15,25 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: 2rem;
+    justify-content: center;
+    margin-right: 2.5vw;
     color: var(--text-color);
     font-weight: bold;
+}
+
+.review-count {
+    font-size: 0.8rem;
+    color: #7b7f85;
+    font-style: italic;
+    font-weight: normal;
+    margin: 0;
 }
 
 .review-content {
     color: var(--title-color);
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 100%;
     border-radius: 15px;
     padding: 0.3rem 1.2rem 0.3rem 1.2rem;
     background-color: var(--accent-hover-color);
@@ -40,6 +49,12 @@
     gap: 2.5rem;
 }
 
+.review-bottom {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .review-note {
     display: flex;
     align-items: center;
@@ -47,4 +62,10 @@
     font-size: small;
     color: var(--text-color);
     font-style: italic;
+}
+
+.review-date {
+  font-size: small;
+  font-style: italic;
+  color: var(--text-color);
 }
