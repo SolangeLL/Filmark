@@ -1,4 +1,5 @@
-import { MemoryRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 import './App.css';
 import './Theme.css';
 import Login from './Login/Login';
@@ -12,6 +13,7 @@ import Profil from './Profil/Profil';
 export default function App() {
   return (
     <Router>
+      <Toaster position="top-right" gutter={5} />
       <Routes>
         <Route path="*" element={<Login />} />
 

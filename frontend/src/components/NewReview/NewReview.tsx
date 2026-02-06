@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Rating } from '@mui/material';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbDownOutlined from '@mui/icons-material/ThumbDownOutlined';
+import toast from 'react-hot-toast';
 import { Review } from '../../types/Review';
 import './NewReview.css';
 
@@ -34,7 +35,8 @@ function NewReview({ onSubmit }: NewReviewProps) {
     setErrors(newErrors);
 
     if (Object.values(newErrors).some((error) => error)) {
-      //TODO: Spawn toast notification for errors
+      toast.dismiss();
+      toast.error('Please fill in all fields and provide ratings.');
       return;
     }
 
