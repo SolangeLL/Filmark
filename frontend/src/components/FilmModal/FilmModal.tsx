@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import { Rating } from '@mui/material';
 import './FilmModal.css';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbDownOutlined from '@mui/icons-material/ThumbDownOutlined';
 import Review from '../Review/Review';
 import NewReview from '../NewReview/NewReview';
+import { Review as ReviewType } from '../../types/Review';
 
 interface FilmModal2Props {
   isOpen: boolean;
@@ -12,6 +14,44 @@ interface FilmModal2Props {
 }
 
 function FilmModal2({ isOpen, filmName, onClose }: FilmModal2Props) {
+  const [reviews, setReviews] = useState<ReviewType[]>([
+    {
+      id: '1',
+      title: 'Not bad',
+      comment:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+      goodNote: 5.0,
+      badNote: 1.0,
+      reviewDate: '24/12/2025',
+      profilePictureUrl:
+        'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png',
+    },
+    {
+      id: '2',
+      title: 'Disappointing',
+      comment: 'So bad',
+      goodNote: 0.5,
+      badNote: 4.5,
+      reviewDate: '06/07/2026',
+      profilePictureUrl:
+        'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png',
+    },
+  ]);
+
+  const handleNewReview = (
+    newReview: Omit<ReviewType, 'id' | 'reviewDate' | 'profilePictureUrl'>,
+  ) => {
+    const reviewData: ReviewType = {
+      id: Date.now().toString(),
+      ...newReview,
+      reviewDate: new Date().toLocaleDateString('fr-FR'),
+      profilePictureUrl:
+        'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png',
+    };
+
+    setReviews([reviewData, ...reviews]);
+  };
+
   return (
     <>
       <div className={`film-modal ${isOpen ? 'open' : ''}`}>
@@ -91,23 +131,10 @@ function FilmModal2({ isOpen, filmName, onClose }: FilmModal2Props) {
         <div className="film-modal-third-section">
           <h2>Reviews</h2>
           <div className="review-container">
-            <NewReview />
-            <Review
-              title="Not bad"
-              comment="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-              goodNote={5.0}
-              badNote={1.0}
-              profilePictureUrl="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
-              reviewDate="24/12/2025"
-            />
-            <Review
-              title="Disappointing"
-              comment="So bad"
-              goodNote={0.5}
-              badNote={4.5}
-              profilePictureUrl="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
-              reviewDate="06/07/2026"
-            />
+            <NewReview onSubmit={handleNewReview} />
+            {reviews.map((review) => (
+              <Review key={review.id} review={review} />
+            ))}
           </div>
         </div>
       </div>

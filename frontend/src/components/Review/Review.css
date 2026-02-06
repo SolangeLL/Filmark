@@ -56,6 +56,8 @@
 }
 
 .review-note {
+  padding: 0 0.3rem 0 0.3rem;
+  border-radius: 5px;
     display: flex;
     align-items: center;
     gap: 0.5rem;
