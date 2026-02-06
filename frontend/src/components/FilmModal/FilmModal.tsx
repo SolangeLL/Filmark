@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { Rating } from '@mui/material';
 import './FilmModal.css';
+import CloseIcon from '@mui/icons-material/Close';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import ThumbDownOutlined from '@mui/icons-material/ThumbDownOutlined';
+import Divider from '@mui/material/Divider';
 import Review from '../Review/Review';
 import NewReview from '../NewReview/NewReview';
 import { Review as ReviewType } from '../../types/Review';
@@ -55,12 +57,20 @@ function FilmModal2({ isOpen, filmName, onClose }: FilmModal2Props) {
   return (
     <>
       <div className={`film-modal ${isOpen ? 'open' : ''}`}>
+        <button
+          type="button"
+          className="film-modal-close"
+          onClick={onClose}
+          aria-label="Close"
+        >
+          <CloseIcon />
+        </button>
+
         <div className="film-modal-header">
           <div className="film-modal-picture">
             <img
               src="https://oblikon.net/wp-content/uploads/her_affiche.jpg"
               alt="Close"
-              onClick={onClose}
             />
           </div>
 
@@ -132,6 +142,13 @@ function FilmModal2({ isOpen, filmName, onClose }: FilmModal2Props) {
           <h2>Reviews</h2>
           <div className="review-container">
             <NewReview onSubmit={handleNewReview} />
+            <Divider
+              sx={{
+                borderBottomWidth: '4px',
+                borderColor: '#97a87a81',
+                borderRadius: '5px',
+              }}
+            />
             {reviews.map((review) => (
               <Review key={review.id} review={review} />
             ))}
@@ -139,7 +156,14 @@ function FilmModal2({ isOpen, filmName, onClose }: FilmModal2Props) {
         </div>
       </div>
 
-      {isOpen && <div onClick={onClose} className="background" />}
+      {isOpen && (
+        <button
+          type="button"
+          onClick={onClose}
+          className="background"
+          aria-label="Close on background button"
+        />
+      )}
     </>
   );
 }

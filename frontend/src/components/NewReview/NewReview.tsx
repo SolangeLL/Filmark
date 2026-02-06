@@ -57,6 +57,8 @@ function NewReview({ onSubmit }: NewReviewProps) {
       goodMark: false,
       badMark: false,
     });
+
+    toast.success('Review submitted successfully!');
   };
 
   return (

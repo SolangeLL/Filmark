@@ -4,7 +4,7 @@
     color: var(--title-color);
     display: flex;
     flex-direction: column;
-    width: 100%;
+    max-width: 100%;
     border-radius: 15px;
     padding: 1rem 0.9rem 1rem 0.9rem;
     background-color: var(--accent-hover-color);
