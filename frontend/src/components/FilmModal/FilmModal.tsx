@@ -9,13 +9,13 @@ import Review from '../Review/Review';
 import NewReview from '../NewReview/NewReview';
 import { Review as ReviewType } from '../../types/Review';
 
-interface FilmModal2Props {
+interface FilmModalProps {
   isOpen: boolean;
   filmName: string | null;
   onClose: () => void;
 }
 
-function FilmModal2({ isOpen, filmName, onClose }: FilmModal2Props) {
+function FilmModal({ isOpen, filmName, onClose }: FilmModalProps) {
   const [reviews, setReviews] = useState<ReviewType[]>([
     {
       id: '1',
@@ -168,4 +168,4 @@ function FilmModal2({ isOpen, filmName, onClose }: FilmModal2Props) {
   );
 }
 
-export default FilmModal2;
+export default FilmModal;

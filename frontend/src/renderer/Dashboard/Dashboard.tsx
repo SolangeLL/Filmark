@@ -3,8 +3,7 @@ import './Dashboard.css';
 import { LuHeart, LuList, LuTrash } from 'react-icons/lu';
 import ListSection from '../../components/ListSection/ListSection';
 import PinnedSection from '../../components/PinnedSection/PinnedSection';
-// import FilmModal from '../../components/FilmModal/FilmModal';
-import FilmModal2 from '../../components/FilmModal/FilmModal';
+import FilmModal from '../../components/FilmModal/FilmModal';
 
 const FILMS = [
   'Film 1',
@@ -21,10 +20,6 @@ const TRASH = ['Film 1', 'Film 2', 'Film 3'];
 function Dashboard() {
   const [selectedFilm, setSelectedFilm] = useState<string | null>(null);
 
-  function addFilm() {
-    console.log('Add film');
-  }
-
   function viewAllFavorites() {
     console.log('View all favorites');
   }
@@ -39,14 +34,13 @@ function Dashboard() {
 
   return (
     <div className="dashboard">
-      <h1>Dashboard Page</h1>
+      <h1>Dashboard</h1>
 
       <ListSection
         icon={LuList}
         title="List"
         films={FILMS}
         onFilmClick={setSelectedFilm}
-        onAdd={() => addFilm()}
       />
 
       <div className="pinned">
@@ -67,7 +61,7 @@ function Dashboard() {
         />
       </div>
 
-      <FilmModal2
+      <FilmModal
         isOpen={selectedFilm !== null}
         filmName={selectedFilm}
         onClose={() => closeModal()}
