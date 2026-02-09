@@ -17,13 +17,14 @@ const FILMS = [
 
 function Films() {
   const [selectedFilm, setSelectedFilm] = useState<string | null>(null);
+  const [isNewListModalOpen, setIsNewListModalOpen] = useState(false);
 
   function closeModal() {
     setSelectedFilm(null);
   }
 
-  function openNewListModal() {
-    console.log('Open new list modal');
+  function toggleNewListModal() {
+    setIsNewListModalOpen(!isNewListModalOpen);
   }
 
   return (
@@ -60,7 +61,7 @@ function Films() {
       <button
         type="button"
         className="new-list-button"
-        onClick={openNewListModal}
+        onClick={toggleNewListModal}
       >
         <LuPlus />
       </button>
@@ -71,7 +72,7 @@ function Films() {
         onClose={() => closeModal()}
       />
 
-      <NewListModal />
+      <NewListModal isOpen={isNewListModalOpen} onSubmit={() => {}} onClose={toggleNewListModal} />
     </div>
   );
 }

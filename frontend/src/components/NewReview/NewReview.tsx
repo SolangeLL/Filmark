@@ -5,6 +5,7 @@ import ThumbDownOutlined from '@mui/icons-material/ThumbDownOutlined';
 import toast from 'react-hot-toast';
 import { Review } from '../../types/Review';
 import './NewReview.css';
+import TextInput from '../TextInput/TextInput';
 
 interface NewReviewProps {
   onSubmit: (
@@ -61,19 +62,20 @@ function NewReview({ onSubmit }: NewReviewProps) {
     toast.success('Review submitted successfully!');
   };
 
+  const handleTitleChande = (value: string) => {
+    setTitle(value);
+    if (errors.title && value.trim() !== '') {
+      setErrors({ ...errors, title: false });
+    }
+  }
+
   return (
     <div className="new-review">
-      <input
-        type="text"
-        className={`review-title ${errors.title ? 'error' : ''}`}
+      <TextInput
+        title={title}
         placeholder="Review Title"
-        value={title}
-        onChange={(e) => {
-          setTitle(e.target.value);
-          if (errors.title && e.target.value.trim() !== '') {
-            setErrors({ ...errors, title: false });
-          }
-        }}
+        onChange={(value) => { handleTitleChande(value); }}
+        isError={errors.title}
       />
       <textarea
         className={`new-review-comment ${errors.comment ? 'error' : ''}`}
