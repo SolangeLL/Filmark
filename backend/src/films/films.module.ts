@@ -8,6 +8,6 @@ import { OmdbModule } from 'src/omdb/omdb.module';
 @Module({
   imports: [TypeOrmModule.forFeature([Film]), OmdbModule],
   controllers: [FilmsController],
-  providers: [FilmsService]
+  providers: [FilmsService],
 })
-export class FilmsModule { }
+export class FilmsModule {}

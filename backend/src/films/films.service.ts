@@ -6,26 +6,25 @@ import { OmdbService } from 'src/omdb/omdb.service';
 
 @Injectable()
 export class FilmsService {
-    private readonly films: Film[] = [];
+  private readonly films: Film[] = [];
 
-    constructor(
-        @InjectRepository(Film)
-        private filmRepository: Repository<Film>,
-        private omdbService: OmdbService,
-    ) {}
+  constructor(
+    @InjectRepository(Film)
+    private filmRepository: Repository<Film>,
+    private omdbService: OmdbService,
+  ) {}
 
-    async create(filmData: Partial<Film>): Promise<Film> {
-        const film = this.filmRepository.create(filmData);
-        return this.filmRepository.save(film);
+  async create(filmData: Partial<Film>): Promise<Film> {
+    const film = this.filmRepository.create(filmData);
+    return this.filmRepository.save(film);
+  }
 
-    }
+  async getByTitle(title: string): Promise<any> {
+    const film = this.omdbService.getDataByTitle(title);
+    return film;
+  }
 
-    async getByTitle(title: string): Promise<any> {
-        const film = this.omdbService.getDataByTitle(title);
-        return film;
-    }
-
-    findAll(): Film[] {
-        return this.films;
-    }
+  findAll(): Film[] {
+    return this.films;
+  }
 }
