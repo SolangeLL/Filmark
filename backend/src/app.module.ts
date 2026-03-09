@@ -7,6 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { OmdbModule } from './omdb/omdb.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { SupabaseModule } from './supabase/supabase.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { AuthModule } from './auth/auth.module';
     OmdbModule,
     UsersModule,
     AuthModule,
+    SupabaseModule,
   ],
   controllers: [AppController],
   providers: [AppService],

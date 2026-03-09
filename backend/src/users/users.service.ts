@@ -16,6 +16,10 @@ export class UsersService {
     }
   }
 
+  async findAll(): Promise<User[]> {
+    return await this.userRepository.find();
+  }
+
   async findById(id: number): Promise<User> {
     const user = await this.userRepository.findOne({ where: { id } });
     this.AssertUserExists(user);

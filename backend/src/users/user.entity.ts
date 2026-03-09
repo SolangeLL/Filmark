@@ -18,5 +18,5 @@ export class User {
   isPasswordSet: boolean;
 
   @Column({ nullable: true })
-  profilePictureUrl?: string;
+  profilePictureName?: string;
 }

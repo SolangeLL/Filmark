@@ -3,14 +3,24 @@ import ValentineIcon from '../../../assets/avatars/valentine.png';
 import SolangeIcon from '../../../assets/avatars/solange.png';
 
 import './Login.css';
+import { useEffect, useState } from 'react';
+import { usersApi } from '../../api/users';
 
 function Login() {
   const navigate = useNavigate();
+  const [userList, setUserList] = useState([]);
 
   function handleLogin(user: string) {
     console.log(`Logging in as ${user}`);
     navigate('/dashboard');
   }
+
+  useEffect(() => {
+    usersApi.findAll().then((users) => {
+      setUserList(users);
+      console.log('users: ', users);
+    });
+  }, [])
 
   return (
     <div className="login-page">
