@@ -44,37 +44,3 @@
   width: 50%;
   height: 40%;
 }
-
-.user-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.user-picture {
-  border-radius: 50%;
-  padding: 0.3rem;
-  background: linear-gradient(
-    130deg,
-    #ffefb0 51.77%,
-    #5001c7 129.35%
-  );
-  position: relative;
-  display: flex;
-  border: 3px solid black;
-  transition: all ease 0.3s;
-}
-
-.user-picture:hover {
-  transform: scale(1.1);
-  cursor: pointer;
-}
-
-.user-picture img {
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
-}
-
-

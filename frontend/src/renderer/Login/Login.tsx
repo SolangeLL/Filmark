@@ -3,7 +3,7 @@ import './Login.css';
 import { useEffect, useState } from 'react';
 import { usersApi } from '../../api/users';
 import { User } from '../../types/User';
-import { getAvatarUrl } from '../../utils/getAvatarUrl';
+import UserCard from '../../components/UserCard/UserCard';
 
 function Login() {
   const navigate = useNavigate();
@@ -13,6 +13,12 @@ function Login() {
     console.log(`Logging in as ${user}`);
     navigate('/dashboard');
   }
+
+  const refreshUser = (userId: number) => {
+    usersApi.findById(userId).then((updatedUser) => {
+        setUserList(prev => prev.map(u => u.id === userId ? updatedUser : u));
+    });
+};
 
   useEffect(() => {
     usersApi.findAll().then((users) => {
@@ -44,15 +50,7 @@ function Login() {
       <div className="users">
         {
           userList.map((user, index) => {
-            return <div className="user-card" key={index}>
-              <h2>{user.username}</h2>
-              <div
-                className="user-picture"
-                onClick={() => handleLogin(user.username)}
-              >
-                <img alt="user avatar" src={getAvatarUrl(user)} />
-              </div>
-            </div>
+            return <UserCard key={index} user={user} onUserUpdated={refreshUser} />
           })
         }
       </div>
