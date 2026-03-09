@@ -1,4 +1,3 @@
-/* UserCard.css */
 .user-card-container {
   display: flex;
   flex-direction: column;
@@ -12,6 +11,10 @@
   align-items: center;
 }
 
+.user-card h2 {
+  margin-bottom: 1rem;
+}
+
 .user-picture {
   border-radius: 50%;
   padding: 0.3rem;
@@ -19,18 +22,30 @@
   position: relative;
   display: flex;
   border: 3px solid black;
+  margin-block: 0.5rem;
   transition: all ease 0.3s;
 }
 
 .user-picture:hover {
-  transform: scale(1.1);
+  transform: scale(1.2);
   cursor: pointer;
 }
 
 .user-picture img {
   border-radius: 50%;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
+  transition: all ease 0.3s;
+}
+
+.user-picture.selected {
+  transform: scale(1.3);
+  margin-block: 1.5rem;
+}
+
+.user-picture.selected:hover {
+  transform: scale(1.4);
+  cursor: pointer;
 }
 
 .login-fields {

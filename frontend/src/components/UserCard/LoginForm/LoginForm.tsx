@@ -2,27 +2,24 @@ import { CircularProgress, FormControl, IconButton, InputAdornment, InputLabel, 
 import { useState } from "react";
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import './SetPasswordForm.css'
+import './LoginForm.css'
 import { User } from "../../../types/User";
 import { authApi } from "../../../api/auth";
 import toast from "react-hot-toast";
 
-interface SetPasswordFormProps {
+interface LoginFormProps {
     user: User;
-    onUserUpdated: (userId: number) => void;
+    onLogin: (userId: number) => void;
 }
 
-const SetPasswordForm = ({ user, onUserUpdated }: SetPasswordFormProps) => {
+const LoginForm = ({ user, onLogin }: LoginFormProps) => {
     const [showPassword, setShowPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
     const [isErrorPassword, setIsErrorPassword] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
     const handleClickShowPassword = () => setShowPassword((show) => !show);
-    const handleClickShowConfirmPassword = () => setShowConfirmPassword((show) => !show);
 
     const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
@@ -32,23 +29,16 @@ const SetPasswordForm = ({ user, onUserUpdated }: SetPasswordFormProps) => {
         event.preventDefault();
     };
 
-    const handleSetupPassword = () => {
-        const arePasswordsMatching = password === confirmPassword;
-        if (!password || !confirmPassword) {
-            setErrorMessage("Please fill the inputs.");
-            setIsErrorPassword(true);
-            return;
-        }
-
-        if (arePasswordsMatching === false) {
-            setErrorMessage("Passwords don't match.");
+    const handleLogin = () => {
+        if (!password) {
+            setErrorMessage('Please fill the input field.');
             setIsErrorPassword(true);
             return;
         }
 
         setIsLoading(true);
-        authApi.setupPassword(user.id, password)
-            .then(() => { onUserUpdated(user.id); toast.success('Password set!') })
+        authApi.login(user.email, password)
+            .then(() => { onLogin(user.id); toast.success('Login successful!') })
             .catch((err) => {
                 console.log("error: ", err.response);
                 setErrorMessage(err.response.data.message);
@@ -58,8 +48,8 @@ const SetPasswordForm = ({ user, onUserUpdated }: SetPasswordFormProps) => {
     }
 
     return (
-        <div className="set-password-container">
-            <h2 id="set-password-title">Set your password</h2>
+        <div className="login-form-container">
+            <h2 id="login-form-title">Enter your password</h2>
             <FormControl fullWidth>
                 <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
                 <OutlinedInput
@@ -68,8 +58,9 @@ const SetPasswordForm = ({ user, onUserUpdated }: SetPasswordFormProps) => {
                     type={showPassword ? 'text' : 'password'}
                     value={password}
                     color="primary"
-                    onSubmit={handleSetupPassword}
+                    style={{ marginBottom: '0.3rem' }}
                     onChange={(e) => setPassword(e.target.value)}
+                    onSubmit={handleLogin}
                     endAdornment={
                         <InputAdornment position="end">
                             <IconButton
@@ -87,39 +78,12 @@ const SetPasswordForm = ({ user, onUserUpdated }: SetPasswordFormProps) => {
                     }
                     label="Password"
                 />
-
             </FormControl>
 
-            <FormControl fullWidth sx={{ m: 1 }}>
-                <InputLabel htmlFor="outlined-adornment-confirm-password">Confirm Password</InputLabel>
-                <OutlinedInput
-                    id="outlined-adornment-confirm-password"
-                    type={showConfirmPassword ? 'text' : 'password'}
-                    value={confirmPassword}
-                    error={isErrorPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    endAdornment={
-                        <InputAdornment position="end">
-                            <IconButton
-                                aria-label={
-                                    showConfirmPassword ? 'hide the password' : 'display the password'
-                                }
-                                onClick={handleClickShowConfirmPassword}
-                                onMouseDown={handleMouseDownPassword}
-                                onMouseUp={handleMouseUpPassword}
-                                edge="end"
-                            >
-                                {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
-                            </IconButton>
-                        </InputAdornment>
-                    }
-                    label="Confirm Password"
-                />
-            </FormControl>
-
-            <button className="user-submit-btn" onClick={handleSetupPassword} disabled={isLoading}>
+            <button className="user-submit-btn" onClick={handleLogin} disabled={isLoading}>
                 {isLoading ? <CircularProgress size={20} color="inherit" /> : 'Submit'}
             </button>
+
             {
                 isErrorPassword
                     ? <p style={{ color: 'red' }}>{errorMessage}</p>
@@ -129,4 +93,4 @@ const SetPasswordForm = ({ user, onUserUpdated }: SetPasswordFormProps) => {
     )
 }
 
-export default SetPasswordForm
+export default LoginForm

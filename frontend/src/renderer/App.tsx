@@ -9,22 +9,26 @@ import Series from './Series/Series';
 import Dashboard from './Dashboard/Dashboard';
 import Settings from './Settings/Settings';
 import Profil from './Profil/Profil';
+import { ThemeProvider } from '@emotion/react';
+import customTheme from '../utils/customMuiTheme';
 
 export default function App() {
   return (
-    <Router>
-      <Toaster position="top-right" gutter={5} />
-      <Routes>
-        <Route path="*" element={<Login />} />
+    <ThemeProvider theme={customTheme}>
+      <Router>
+        <Toaster position="top-right" gutter={5} />
+        <Routes>
+          <Route path="*" element={<Login />} />
 
-        <Route element={<AppLayout />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/films" element={<Films />} />
-          <Route path="/series" element={<Series />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/profil" element={<Profil />} />
-        </Route>
-      </Routes>
-    </Router>
+          <Route element={<AppLayout />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/films" element={<Films />} />
+            <Route path="/series" element={<Series />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/profil" element={<Profil />} />
+          </Route>
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }

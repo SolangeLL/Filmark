@@ -9,16 +9,16 @@ function Login() {
   const navigate = useNavigate();
   const [userList, setUserList] = useState<User[]>([]);
 
-  function handleLogin(user: string) {
-    console.log(`Logging in as ${user}`);
+  function handleLogin(userId: number) {
+    console.log(`Logging in as ${userId}`);
     navigate('/dashboard');
   }
 
   const refreshUser = (userId: number) => {
     usersApi.findById(userId).then((updatedUser) => {
-        setUserList(prev => prev.map(u => u.id === userId ? updatedUser : u));
+      setUserList(prev => prev.map(u => u.id === userId ? updatedUser : u));
     });
-};
+  };
 
   useEffect(() => {
     usersApi.findAll().then((users) => {
@@ -50,7 +50,12 @@ function Login() {
       <div className="users">
         {
           userList.map((user, index) => {
-            return <UserCard key={index} user={user} onUserUpdated={refreshUser} />
+            return <UserCard
+              key={index}
+              user={user}
+              onUserUpdated={refreshUser}
+              onLogin={handleLogin}
+            />
           })
         }
       </div>

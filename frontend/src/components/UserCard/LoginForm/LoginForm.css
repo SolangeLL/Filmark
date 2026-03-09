@@ -1,0 +1,13 @@
+#login-form-title {
+    color: var(--text-color);
+    margin-bottom: 0.8rem;
+    width: 100%;
+}
+
+.login-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem
+}
