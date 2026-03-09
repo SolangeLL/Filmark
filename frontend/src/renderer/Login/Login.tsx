@@ -1,14 +1,13 @@
 import { Link, useNavigate } from 'react-router-dom';
-import ValentineIcon from '../../../assets/avatars/valentine.png';
-import SolangeIcon from '../../../assets/avatars/solange.png';
-
 import './Login.css';
 import { useEffect, useState } from 'react';
 import { usersApi } from '../../api/users';
+import { User } from '../../types/User';
+import { getAvatarUrl } from '../../utils/getAvatarUrl';
 
 function Login() {
   const navigate = useNavigate();
-  const [userList, setUserList] = useState([]);
+  const [userList, setUserList] = useState<User[]>([]);
 
   function handleLogin(user: string) {
     console.log(`Logging in as ${user}`);
@@ -18,7 +17,6 @@ function Login() {
   useEffect(() => {
     usersApi.findAll().then((users) => {
       setUserList(users);
-      console.log('users: ', users);
     });
   }, [])
 
@@ -44,22 +42,19 @@ function Login() {
       </div>
 
       <div className="users">
-        <div className="user-card">
-          <h2>Valentine</h2>
-          <div
-            className="user-picture"
-            onClick={() => handleLogin('Valentine')}
-          >
-            <img alt="user avatar" src={ValentineIcon} />
-          </div>
-        </div>
-
-        <div className="user-card">
-          <h2>Solange</h2>
-          <div className="user-picture" onClick={() => handleLogin('Solange')}>
-            <img alt="user avatar" src={SolangeIcon} />
-          </div>
-        </div>
+        {
+          userList.map((user, index) => {
+            return <div className="user-card" key={index}>
+              <h2>{user.username}</h2>
+              <div
+                className="user-picture"
+                onClick={() => handleLogin(user.username)}
+              >
+                <img alt="user avatar" src={getAvatarUrl(user)} />
+              </div>
+            </div>
+          })
+        }
       </div>
     </div>
   );
