@@ -4,7 +4,7 @@
   top: 30%;
   left: 30%;
   width: 40%;
-  height: 40%;
+  height: 45%;
   background-color: var(--background-color);
   transform: scale(0);
   border-radius: 15px;
@@ -21,9 +21,38 @@
   transform: scale(1);
 }
 
-.new-list-modal h2
-{
+.new-list-modal h1 {
   margin-bottom: auto;
+}
+
+.new-list-section {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+}
+
+.new-list-section h2 {
+  margin-bottom: 1.3rem;
+}
+
+.icon-button {
+  background-color: var(--secondary-color);
+  font-size: 35px;
+  display: flex;
+  padding: 0.5rem;
+}
+
+.icon-button.selected {
+  background-color: var(--primary-color);
+}
+
+.submit-list-button {
+  font-size: 2rem;
+  padding: 0.5rem 0.7rem;
+  margin-top: 1rem;
 }
 
 .background {
