@@ -14,8 +14,7 @@ interface UserCardProps {
 const UserCard = ({user, onUserUpdated, onLogin}: UserCardProps) => {
     const [isSelected, setSelected] = useState(false);
 
-    function handleLogin(username: string) {
-        console.log("coucou");
+    function selectUser(username: string) {
         setSelected(!isSelected);
     }
 
@@ -25,7 +24,7 @@ const UserCard = ({user, onUserUpdated, onLogin}: UserCardProps) => {
                 <h2>{user.username}</h2>
                 <div
                     className={`user-picture ${isSelected ? 'selected' : ''}`}
-                    onClick={() => handleLogin(user.username)}
+                    onClick={() => selectUser(user.username)}
                 >
                     <img alt="user avatar" src={getAvatarUrl(user)} />
                 </div>

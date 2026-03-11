@@ -1,11 +1,10 @@
-import { ElementType } from 'react';
 import { LuEye } from 'react-icons/lu';
 import IconLabel from '../IconLabel/IconLabel';
 import PinnedFilmCard from '../PinnedFilmCard/PinnedFilmCard';
 import './PinnedSection.css';
 
 interface PinnedSectionProps {
-  icon: ElementType;
+  icon: string;
   title: string;
   films: string[];
   onFilmClick: (filmName: string) => void;

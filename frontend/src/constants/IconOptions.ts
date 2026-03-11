@@ -1,5 +1,16 @@
-export const ICON_OPTIONS = [
-  'FaStar', 'FaHeart', 'FaBookmark', 'FaFilm', 'FaList',
-  'FaTrophy', 'FaFire', 'FaClock', 'FaThumbsUp', 'FaEye',
-  'FaLock', 'FaGlobe', 'FaTag', 'FaTrash'
-];
+export const ICON_OPTIONS = {
+  star: 'FaStar',
+  heart: 'FaHeart',
+  bookmark: 'FaBookmark',
+  film: 'FaFilm',
+  list: 'FaList',
+  trophy: 'FaTrophy',
+  fire: 'FaFire',
+  clock: 'FaClock',
+  thumbsUp: 'FaThumbsUp',
+  eye: 'FaEye',
+  lock: 'FaLock',
+  globe: 'FaGlobe',
+  tag: 'FaTag',
+  trash: 'FaTrash',
+}

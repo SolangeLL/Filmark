@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import { LuEye, LuHeart, LuList, LuPlus, LuTrash } from 'react-icons/lu';
+import { LuPlus } from 'react-icons/lu';
 import FilmModal from '../../components/FilmModal/FilmModal';
 import ListSection from '../../components/ListSection/ListSection';
-import './Films.css';
 import NewListModal from '../../components/NewListModal/NewListModal';
+import './Films.css';
+import { List as ListType } from '../../types/List';
+import { ICON_OPTIONS } from '../../constants/IconOptions';
 
 const FILMS = [
   'Film 1',
@@ -16,47 +18,48 @@ const FILMS = [
 ];
 
 function Films() {
-  const [selectedFilm, setSelectedFilm] = useState<string | null>(null);
+  const [selectedFilm, setSelectedFilm] = useState('');
   const [isNewListModalOpen, setIsNewListModalOpen] = useState(false);
+  const [filmLists, setFilmLists] = useState<ListType[]>([
+    {
+      id: 1,
+      name: "To watch",
+      icon: ICON_OPTIONS.list,
+      films: FILMS
+    }
+  ])
 
   function closeModal() {
-    setSelectedFilm(null);
+    setSelectedFilm('');
   }
 
   function toggleNewListModal() {
     setIsNewListModalOpen(!isNewListModalOpen);
   }
 
+  function updateFilmLists(newListName: string, newIcon: string) {
+    const newList: ListType = {
+      id: filmLists.length + 1,
+      name: newListName,
+      icon: newIcon,
+      films: FILMS
+    };
+
+    setFilmLists([...filmLists, newList]);
+  }
+
   return (
     <div className="films">
       <h1>Films</h1>
-      <ListSection
-        icon={LuList}
-        title="To watch"
-        films={FILMS}
-        onFilmClick={setSelectedFilm}
-      />
-
-      <ListSection
-        icon={LuEye}
-        title="Viewed"
-        films={FILMS}
-        onFilmClick={setSelectedFilm}
-      />
-
-      <ListSection
-        icon={LuHeart}
-        title="Favorites"
-        films={FILMS}
-        onFilmClick={setSelectedFilm}
-      />
-
-      <ListSection
-        icon={LuTrash}
-        title="Trash"
-        films={FILMS}
-        onFilmClick={setSelectedFilm}
-      />
+      {
+        filmLists.map((list, index) => (
+          <ListSection
+            key={index}
+            list={list}
+            onFilmClick={setSelectedFilm}
+          />
+        ))
+      }
 
       <button
         type="button"
@@ -67,12 +70,16 @@ function Films() {
       </button>
 
       <FilmModal
-        isOpen={selectedFilm !== null}
+        isOpen={selectedFilm !== ''}
         filmName={selectedFilm}
         onClose={() => closeModal()}
       />
 
-      <NewListModal isOpen={isNewListModalOpen} onSubmit={() => {}} onClose={toggleNewListModal} />
+      <NewListModal
+        isOpen={isNewListModalOpen}
+        onSubmit={(newListName: string, iconName: string) => updateFilmLists(newListName, iconName)}
+        onClose={toggleNewListModal}
+      />
     </div>
   );
 }

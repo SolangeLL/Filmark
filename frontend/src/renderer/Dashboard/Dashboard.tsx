@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import './Dashboard.css';
-import { LuHeart, LuList, LuTrash } from 'react-icons/lu';
 import ListSection from '../../components/ListSection/ListSection';
 import PinnedSection from '../../components/PinnedSection/PinnedSection';
 import FilmModal from '../../components/FilmModal/FilmModal';
+import { List as ListType } from '../../types/List';
+import { ICON_OPTIONS } from '../../constants/IconOptions';
 
 const FILMS = [
   'Film 1',
@@ -16,6 +17,13 @@ const FILMS = [
 ];
 const FAVORITES = ['Film 1', 'Film 2', 'Film 3'];
 const TRASH = ['Film 1', 'Film 2', 'Film 3'];
+
+const defaultList: ListType = {
+  id: 1,
+  name: 'List',
+  icon: 'FaList',
+  films: FILMS
+};
 
 function Dashboard() {
   const [selectedFilm, setSelectedFilm] = useState<string | null>(null);
@@ -37,15 +45,13 @@ function Dashboard() {
       <h1>Dashboard</h1>
 
       <ListSection
-        icon={LuList}
-        title="List"
-        films={FILMS}
+        list={defaultList}
         onFilmClick={setSelectedFilm}
       />
 
       <div className="pinned">
         <PinnedSection
-          icon={LuHeart}
+          icon={ICON_OPTIONS.heart}
           title="Favorites"
           films={FAVORITES}
           onFilmClick={setSelectedFilm}
@@ -53,7 +59,7 @@ function Dashboard() {
         />
 
         <PinnedSection
-          icon={LuTrash}
+          icon={ICON_OPTIONS.trash}
           title="Trash"
           films={TRASH}
           onFilmClick={setSelectedFilm}

@@ -50,7 +50,6 @@ const SetPasswordForm = ({ user, onUserUpdated }: SetPasswordFormProps) => {
         authApi.setupPassword(user.id, password)
             .then(() => { onUserUpdated(user.id); toast.success('Password set!') })
             .catch((err) => {
-                console.log("error: ", err.response);
                 setErrorMessage(err.response.data.message);
                 setIsErrorPassword(true);
             })

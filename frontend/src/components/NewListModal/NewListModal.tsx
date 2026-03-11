@@ -6,14 +6,13 @@ import { DynamicFaIcon } from '../DynamicFaIcon/DynamicFaIcon';
 
 interface NewListModalProps {
   isOpen: boolean;
-  onSubmit: () => void;
+  onSubmit: (listName: string, iconName: string) => void;
   onClose: () => void;
 }
 
 function NewListModal({ isOpen, onSubmit, onClose }: NewListModalProps) {
-  const [filmName, setFilmName] = useState('');
-  const [selectedIcon, setSelectedIcon] = useState(ICON_OPTIONS[0]);
-  console.log(selectedIcon)
+  const [listName, setListName] = useState('');
+  const [selectedIcon, setSelectedIcon] = useState(ICON_OPTIONS.list);
   return (
     <>
       <div className={`new-list-modal ${isOpen ? 'open' : ''}`}>
@@ -24,8 +23,8 @@ function NewListModal({ isOpen, onSubmit, onClose }: NewListModalProps) {
           <TextField
             fullWidth
             label="New list name"
-            value={filmName}
-            onChange={(e) => setFilmName(e.target.value)}
+            value={listName}
+            onChange={(e) => setListName(e.target.value)}
           />
         </section>
 
@@ -36,20 +35,24 @@ function NewListModal({ isOpen, onSubmit, onClose }: NewListModalProps) {
             justifyContent={'center'}
             spacing={2}
           >
-            {
-              ICON_OPTIONS.map((iconName) => (
-                <button
-                  className={`icon-button ${selectedIcon === iconName ? 'selected' : ''}`}
-                  onClick={() => setSelectedIcon(iconName)}
-                >
-                  <DynamicFaIcon name={iconName} />
-                </button>
-              ))
-            }
+            {Object.values(ICON_OPTIONS).map((iconName) => (
+              <button
+                key={iconName}
+                className={`icon-button ${selectedIcon === iconName ? 'selected' : ''}`}
+                onClick={() => setSelectedIcon(iconName)}
+              >
+                <DynamicFaIcon name={iconName} />
+              </button>
+            ))}
           </Grid>
         </section>
 
-        <button className='submit-list-button'>Submit</button>
+        <button
+          className='submit-list-button'
+          onClick={() => onSubmit(listName, selectedIcon)}
+        >
+          Submit
+        </button>
 
       </div>
       {isOpen && (

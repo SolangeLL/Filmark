@@ -40,7 +40,6 @@ const LoginForm = ({ user, onLogin }: LoginFormProps) => {
         authApi.login(user.email, password)
             .then(() => { onLogin(user.id); toast.success('Login successful!') })
             .catch((err) => {
-                console.log("error: ", err.response);
                 setErrorMessage(err.response.data.message);
                 setIsErrorPassword(true);
             })

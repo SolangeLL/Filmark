@@ -1,22 +1,20 @@
-import { ElementType } from 'react';
 import IconLabel from '../IconLabel/IconLabel';
 import FilmList from '../FilmList/FilmList';
 import './ListSection.css';
+import { List as ListType } from '../../types/List';
 
 interface ListSectionProps {
-  icon: ElementType;
-  title: string;
-  films: string[];
+  list: ListType,
   onFilmClick: (filmName: string) => void;
 }
 
-function ListSection({ icon, title, films, onFilmClick }: ListSectionProps) {
+function ListSection({ list, onFilmClick }: ListSectionProps) {
   return (
     <div className="list-section">
       <div className="title-bar">
-        <IconLabel icon={icon} label={title} />
+        <IconLabel icon={list.icon} label={list.name} />
       </div>
-      <FilmList films={films} onFilmClick={onFilmClick} />
+      <FilmList films={list.films} onFilmClick={onFilmClick} />
     </div>
   );
 }

@@ -1,15 +1,19 @@
 import { ElementType } from 'react';
 import './IconLabel.css';
+import { DynamicFaIcon } from '../DynamicFaIcon/DynamicFaIcon';
 
 interface IconLabelProps {
-  icon: ElementType;
+  icon: string;
   label: string;
 }
 
-function IconLabel({ icon: Icon, label }: IconLabelProps) {
+function IconLabel({ icon, label }: IconLabelProps) {
   return (
     <div className="iconLabel">
-      <Icon className="icon" />
+      {/* <Icon className="icon" /> */}
+      <span className='icon' >
+        <DynamicFaIcon name={icon} />
+      </span>
       <h2 className="label">{label}</h2>
     </div>
   );
