@@ -8,6 +8,7 @@ import { OmdbModule } from './omdb/omdb.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { SupabaseModule } from './supabase/supabase.module';
+import { ListsModule } from './lists/lists.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { SupabaseModule } from './supabase/supabase.module';
     UsersModule,
     AuthModule,
     SupabaseModule,
+    ListsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

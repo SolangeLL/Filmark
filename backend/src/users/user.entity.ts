@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { List } from 'src/lists/list.entity';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 
 @Entity()
 export class User {
@@ -16,6 +17,11 @@ export class User {
 
   @Column({ default: false })
   isPasswordSet: boolean;
+
+  @OneToMany(() => List, (list) => list.user, {
+    cascade: true
+  })
+  lists: List[];
 
   @Column({ nullable: true })
   profilePictureName?: string;

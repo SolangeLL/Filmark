@@ -8,7 +8,7 @@ export class UsersService {
   constructor(
     @InjectRepository(User)
     private userRepository: Repository<User>,
-  ) {}
+  ) { }
 
   private AssertUserExists(user: User | null) {
     if (user === null) {
