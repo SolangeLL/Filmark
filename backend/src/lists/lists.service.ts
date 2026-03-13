@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { ForbiddenException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { List } from './list.entity';
 import { Repository } from 'typeorm';
@@ -23,9 +23,14 @@ export class ListsService {
     }
 
     async create(createListDto: CreateListDto): Promise<List> {
-        const list = this.listRepository.create(createListDto);
-        console.log("list: ", list);
+        const user = await this.usersService.findById(3);
+        const list = this.listRepository.create({...createListDto, user});
+
+        try {
+            return await this.listRepository.save(list);
+        } catch (error) {
+            throw new ForbiddenException('The list name already exists');
+        }
         
-        return await this.listRepository.save(list);
     }
 }

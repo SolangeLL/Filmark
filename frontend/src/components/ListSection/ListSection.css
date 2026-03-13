@@ -18,3 +18,15 @@
   margin-left: 1rem;
   font-weight: bold;
 }
+
+.empty-list {
+  background-color: var(--secondary-color);
+  height: 170px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  margin-top: 1rem;
+  font-size: larger;
+}

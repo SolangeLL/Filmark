@@ -14,7 +14,11 @@ function ListSection({ list, onFilmClick }: ListSectionProps) {
       <div className="title-bar">
         <IconLabel icon={list.icon} label={list.name} />
       </div>
-      <FilmList films={list.films} onFilmClick={onFilmClick} />
+      {
+        list.films.length === 0
+          ? <div className='empty-list'>No item added yet</div>
+          : <FilmList films={list.films} onFilmClick={onFilmClick} />
+      }
     </div>
   );
 }

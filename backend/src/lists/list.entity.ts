@@ -1,5 +1,5 @@
 import { User } from 'src/users/user.entity';
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
 
 @Entity()
 export class List {
@@ -12,7 +12,7 @@ export class List {
   @Column()
   icon: string;
 
-  @Column('simple-array', { nullable: true, array: true })
+  @Column('text', { nullable: true, array: true })
   films: string[];
 
   @ManyToOne(() => User, (user) => user.lists)

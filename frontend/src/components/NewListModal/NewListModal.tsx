@@ -13,6 +13,23 @@ interface NewListModalProps {
 function NewListModal({ isOpen, onSubmit, onClose }: NewListModalProps) {
   const [listName, setListName] = useState('');
   const [selectedIcon, setSelectedIcon] = useState(ICON_OPTIONS.list);
+
+  function reset() {
+    setListName('');
+    setSelectedIcon(ICON_OPTIONS.list);
+  }
+
+  function handleSubmit() {
+    onSubmit(listName, selectedIcon);
+    onClose();
+    reset();
+  }
+
+  function handleClose() {
+    onClose();
+    reset();
+  }
+
   return (
     <>
       <div className={`new-list-modal ${isOpen ? 'open' : ''}`}>
@@ -49,7 +66,7 @@ function NewListModal({ isOpen, onSubmit, onClose }: NewListModalProps) {
 
         <button
           className='submit-list-button'
-          onClick={() => onSubmit(listName, selectedIcon)}
+          onClick={handleSubmit}
         >
           Submit
         </button>
@@ -58,7 +75,7 @@ function NewListModal({ isOpen, onSubmit, onClose }: NewListModalProps) {
       {isOpen && (
         <button
           type="button"
-          onClick={onClose}
+          onClick={handleClose}
           className="background"
           aria-label="Close on background button"
         />

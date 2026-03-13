@@ -1,4 +1,4 @@
-import { IsArray, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { IsArray, IsString } from 'class-validator';
 
 export class CreateListDto {
     @IsString()
@@ -9,7 +9,4 @@ export class CreateListDto {
 
     @IsArray()
     films: string[];
-
-    @IsNumber()
-    userId: number;
 }

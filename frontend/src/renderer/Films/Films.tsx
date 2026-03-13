@@ -25,7 +25,8 @@ function Films() {
       id: 1,
       name: "To watch",
       icon: ICON_OPTIONS.list,
-      films: FILMS
+      films: FILMS,
+      userId: 1
     }
   ])
 
@@ -42,7 +43,7 @@ function Films() {
       id: filmLists.length + 1,
       name: newListName,
       icon: newIcon,
-      films: FILMS
+      films: []
     };
 
     setFilmLists([...filmLists, newList]);

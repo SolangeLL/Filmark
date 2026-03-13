@@ -8,7 +8,7 @@ export const ICON_OPTIONS = {
   fire: 'FaFire',
   clock: 'FaClock',
   thumbsUp: 'FaThumbsUp',
-  eye: 'FaEye',
+  thumbsDown: 'FaThumbsDown',
   lock: 'FaLock',
   globe: 'FaGlobe',
   tag: 'FaTag',
